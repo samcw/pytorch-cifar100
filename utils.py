@@ -152,6 +152,9 @@ def get_network(args):
     elif args.net == 'stochasticdepth101':
         from models.stochasticdepth import stochastic_depth_resnet101
         net = stochastic_depth_resnet101()
+    elif args.net == 'ghostnet':
+        from models.ghostnet import ghostnet
+        net = ghostnet()
 
     else:
         print('the network name you have entered is not supported yet')

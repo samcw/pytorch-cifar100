@@ -10,6 +10,7 @@ import os
 import sys
 import argparse
 import time
+# from thop import profile
 from datetime import datetime
 
 import numpy as np
@@ -41,6 +42,10 @@ def train(epoch):
         loss = loss_function(outputs, labels)
         loss.backward()
         optimizer.step()
+
+        # calc parameters & flops
+        # parameters, flops = profile(net, (images,))
+        # print("parameters: ", parameters, " flops: ", flops)
 
         n_iter = (epoch - 1) * len(cifar100_training_loader) + batch_index + 1
 
